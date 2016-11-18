@@ -5,6 +5,8 @@
  */
 package concurrencia;
 
+import com.sun.istack.internal.logging.Logger;
+
 /**
  *
  * @author T-107
@@ -32,11 +34,19 @@ public class Princiapal implements Runnable{
         Thread t3=new Thread(new Runnable(){
             @Override
             public void run() {
-                
+                while(true){
+                try{
+                    Thread.sleep(3000);
+                }
+                catch (InterruptedException ex){
+              
+                }
+              
                 System.out.println("soy un background thread");
             }
-            
+            }
         });
+        t3.start();
     }
 
     @Override
